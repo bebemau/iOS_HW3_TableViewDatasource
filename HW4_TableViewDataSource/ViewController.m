@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     _items = [[NSMutableDictionary alloc]initWithCapacity:2];
-    NSDate* date = [self GetDateObject:@"5/1/2008"];
+    NSDate* date = [self GetDateObject:@"1/18/2008"];
     [_items setObject: date  forKey:@"Fluffy"];
     date = [self GetDateObject:@"4/28/2012"];
     [_items setObject: date  forKey:@"Cheetos"];
