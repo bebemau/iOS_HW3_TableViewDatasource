@@ -11,7 +11,6 @@
 @interface EditViewController ()
 
 @property (strong) NSArray* monthArray;
-@property (strong, nonatomic) IBOutlet UITableView *dpBirthday;
 
 @end
 
@@ -32,7 +31,12 @@
 }
 
 - (IBAction)dpBirthday_selected:(id)sender {
-    _birthdayCell.textLabel.text = @"blah";
+    NSDate *birthdate = _dpBirthday.date;
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MMM dd, yyyy"];
+    NSString *dateString = [dateFormat stringFromDate:birthdate];
+    _lblBirthday.text = dateString;
 }
 
 @end

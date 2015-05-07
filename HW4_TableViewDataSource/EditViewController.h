@@ -12,7 +12,8 @@
 
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *nameCell;
+@property (weak, nonatomic) IBOutlet UILabel *lblBirthday;
+@property (weak, nonatomic) IBOutlet UIDatePicker *dpBirthday;
 
-@property (weak, nonatomic) IBOutlet UITableViewCell *birthdayCell;
 
 @end

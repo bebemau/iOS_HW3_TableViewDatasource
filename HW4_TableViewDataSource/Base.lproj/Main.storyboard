@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QjC-Ou-673">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Birthdays-->
@@ -93,16 +94,6 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9X1-LN-u3I">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <datePicker key="tableFooterView" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="yyW-VO-m4L">
-                            <rect key="frame" x="-160" y="-81" width="320" height="162"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <date key="date" timeIntervalSinceReferenceDate="452665122.56111503">
-                                <!--2015-05-07 04:18:42 +0000-->
-                            </date>
-                            <connections>
-                                <action selector="dpBirthday_selected:" destination="0jL-NP-zGZ" eventType="valueChanged" id="Ib0-jJ-tgz"/>
-                            </connections>
-                        </datePicker>
                         <sections>
                             <tableViewSection id="370-hA-kbH">
                                 <cells>
@@ -116,6 +107,101 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bxp-ug-oGJ" id="D7y-bI-9vV">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdH-Lk-wHU">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="31" y="13" width="116" height="21"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlw-fr-eu8">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="271" y="13" width="107" height="21"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xlw-fr-eu8" firstAttribute="top" secondItem="D7y-bI-9vV" secondAttribute="topMargin" constant="5" id="04F-MD-xmT"/>
+                                                <constraint firstItem="wdH-Lk-wHU" firstAttribute="leading" secondItem="D7y-bI-9vV" secondAttribute="leadingMargin" constant="23" id="Dck-Gp-hJa"/>
+                                                <constraint firstItem="xlw-fr-eu8" firstAttribute="leading" secondItem="D7y-bI-9vV" secondAttribute="leadingMargin" constant="263" id="KbC-Ck-fzX"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xlw-fr-eu8" secondAttribute="trailing" constant="14" id="h41-g9-3is"/>
+                                                <constraint firstItem="wdH-Lk-wHU" firstAttribute="top" secondItem="D7y-bI-9vV" secondAttribute="topMargin" constant="5" id="hzr-l0-6ys"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="wdH-Lk-wHU"/>
+                                                    <exclude reference="xlw-fr-eu8"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="Dck-Gp-hJa"/>
+                                                    <exclude reference="hzr-l0-6ys"/>
+                                                    <exclude reference="04F-MD-xmT"/>
+                                                    <exclude reference="KbC-Ck-fzX"/>
+                                                    <exclude reference="h41-g9-3is"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="wdH-Lk-wHU"/>
+                                                    <include reference="xlw-fr-eu8"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="Dck-Gp-hJa"/>
+                                                    <include reference="hzr-l0-6ys"/>
+                                                    <include reference="04F-MD-xmT"/>
+                                                    <include reference="KbC-Ck-fzX"/>
+                                                    <include reference="h41-g9-3is"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="156" id="ku0-Sa-mAA">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ku0-Sa-mAA" id="RUD-zn-dH8">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="siG-eB-Dsm">
+                                                    <rect key="frame" x="-160" y="-81" width="320" height="162"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="452670651.01118898">
+                                                        <!--2015-05-07 05:50:51 +0000-->
+                                                    </date>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="14" y="-69" width="371" height="162"/>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="dpBirthday_selected:" destination="0jL-NP-zGZ" eventType="valueChanged" id="EsQ-3M-e6m"/>
+                                                    </connections>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerX" secondItem="siG-eB-Dsm" secondAttribute="centerX" constant="0.5" id="VQc-lI-o3c"/>
+                                                <constraint firstAttribute="centerY" secondItem="siG-eB-Dsm" secondAttribute="centerY" constant="65.5" id="aAm-TK-R1n"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="siG-eB-Dsm"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="VQc-lI-o3c"/>
+                                                    <exclude reference="aAm-TK-R1n"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="siG-eB-Dsm"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="VQc-lI-o3c"/>
+                                                    <include reference="aAm-TK-R1n"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -135,14 +221,14 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="mMs-2N-pHO"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="birthdayCell" destination="Bxp-ug-oGJ" id="t0m-sH-tEv"/>
-                        <outlet property="dpBirthday" destination="9X1-LN-u3I" id="9oQ-kn-ugk"/>
+                        <outlet property="dpBirthday" destination="siG-eB-Dsm" id="8E1-SQ-TaP"/>
+                        <outlet property="lblBirthday" destination="xlw-fr-eu8" id="GZa-uQ-h6Q"/>
                         <outlet property="nameCell" destination="nZv-fS-JdA" id="qAG-aa-Tdb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43w-MI-SWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2451" y="192.75"/>
+            <point key="canvasLocation" x="2451" y="187.5"/>
         </scene>
     </scenes>
 </document>
