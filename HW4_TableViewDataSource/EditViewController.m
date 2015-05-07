@@ -8,7 +8,10 @@
 
 #import "EditViewController.h"
 
-@interface EditViewController ()<UIPickerViewDataSource, UIPickerViewDelegate>
+@interface EditViewController ()
+
+@property (strong) NSArray* monthArray;
+@property (strong, nonatomic) IBOutlet UITableView *dpBirthday;
 
 @end
 
@@ -17,33 +20,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
-
-#pragma mark - UIPickerViewDelegates
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 3;
-}
-
-
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    if(component == 0){
-        return 12;
-    }
-    else if (component == 1){
-        return 31;
-    }
-    else
-        return 10;
+    
+    _nameCell.textLabel.text = @"meow";
     
 }
 
--(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return @"blah";
+
+
+- (IBAction)btnCancel_clicked:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    
+- (IBAction)dpBirthday_selected:(id)sender {
+    _birthdayCell.textLabel.text = @"blah";
 }
 
 @end

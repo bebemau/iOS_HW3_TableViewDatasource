@@ -10,4 +10,9 @@
 
 @interface EditViewController : UITableViewController
 
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *nameCell;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *birthdayCell;
+
 @end
