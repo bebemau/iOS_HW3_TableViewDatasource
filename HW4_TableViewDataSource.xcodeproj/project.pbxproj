@@ -15,6 +15,7 @@
 		25B4C2941AF72B8B002290F5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25B4C2921AF72B8B002290F5 /* LaunchScreen.xib */; };
 		25B4C2A01AF72B8B002290F5 /* HW4_TableViewDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C29F1AF72B8B002290F5 /* HW4_TableViewDataSourceTests.m */; };
 		25B4C2DD1AF9CF11002290F5 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C2DC1AF9CF11002290F5 /* EditViewController.m */; };
+		25B4C2E31AFC5DB3002290F5 /* BirthdayDisplayCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C2E21AFC5DB3002290F5 /* BirthdayDisplayCellTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		25B4C29F1AF72B8B002290F5 /* HW4_TableViewDataSourceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HW4_TableViewDataSourceTests.m; sourceTree = "<group>"; };
 		25B4C2DB1AF9CF11002290F5 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		25B4C2DC1AF9CF11002290F5 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		25B4C2E11AFC5DB3002290F5 /* BirthdayDisplayCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirthdayDisplayCellTableViewCell.h; sourceTree = "<group>"; };
+		25B4C2E21AFC5DB3002290F5 /* BirthdayDisplayCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BirthdayDisplayCellTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				25B4C2901AF72B8B002290F5 /* Images.xcassets */,
 				25B4C2921AF72B8B002290F5 /* LaunchScreen.xib */,
 				25B4C2831AF72B8B002290F5 /* Supporting Files */,
+				25B4C2E11AFC5DB3002290F5 /* BirthdayDisplayCellTableViewCell.h */,
+				25B4C2E21AFC5DB3002290F5 /* BirthdayDisplayCellTableViewCell.m */,
 			);
 			path = HW4_TableViewDataSource;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25B4C2E31AFC5DB3002290F5 /* BirthdayDisplayCellTableViewCell.m in Sources */,
 				25B4C2DD1AF9CF11002290F5 /* EditViewController.m in Sources */,
 				25B4C28C1AF72B8B002290F5 /* ViewController.m in Sources */,
 				25B4C2891AF72B8B002290F5 /* AppDelegate.m in Sources */,

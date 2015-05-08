@@ -35,6 +35,7 @@
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MMM dd, yyyy"];
+    //dateFormat setLocale
     NSString *dateString = [dateFormat stringFromDate:birthdate];
     _lblBirthday.text = dateString;
 }

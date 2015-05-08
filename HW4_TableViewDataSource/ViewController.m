@@ -18,12 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+    //use mutableCopy
     _items = [[NSMutableDictionary alloc]initWithCapacity:2];
-    NSDate* date = [self GetDateObject:@"1/18/2008"];
-    [_items setObject: date  forKey:@"Fluffy"];
-    date = [self GetDateObject:@"4/28/2012"];
-    [_items setObject: date  forKey:@"Cheetos"];
+    NSDate* date = [self GetDateObject:@"January 18, 2008"];
+    [_items setObject: @"January 18, 2008"  forKey:@"Fluffy"];
+    date = [self GetDateObject:@"April 28, 2012"];
+    [_items setObject: @"April 28, 2012"  forKey:@"Cheetos"];
 }
 
 #pragma tableView
@@ -76,16 +76,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tableCell"];
+    //customTableViewCell *customCell = [tableView dequeueReusableCellwithIdentifier: customCellID];
+    //customCell.someLabel = sometext;
+    //return customCell;
     
     if(cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tableCell"];
     }
     
     NSArray* allKeys = [_items allKeys];
-    id value = [_items objectForKey:[allKeys objectAtIndex:indexPath.row]];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", value];
+    NSString *name = [allKeys objectAtIndex:indexPath.row];
+    id value = [_items objectForKey: name];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", name, value];
+    NSDate *birthdate = [self GetDateObject:value];
+    NSInteger difference = [self CalculateDays: birthdate];
     return cell;
 }
+
 
 
 //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -98,17 +105,50 @@
 
 -(NSDate*)GetDateObject: (NSString*)dateInput{
     NSDateFormatter * df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"MM/dd/yyyy"];
-    [df setTimeZone:[NSTimeZone systemTimeZone]];
-    [df setFormatterBehavior:NSDateFormatterBehaviorDefault];
+    //[df setDateFormat:@"MM/dd/yyyy"];
+    [df setDateFormat:@"MMM dd, yyyy"];
+    //[df setTimeZone:[NSTimeZone systemTimeZone]];
+    //[df setFormatterBehavior:NSDateFormatterBehaviorDefault];
     
     NSDate *output = [df dateFromString:dateInput];
+    
     return output;
+}
+
+-(NSInteger)CalculateDays:(NSDate*)birthday{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear  fromDate:birthday];
+    NSDateComponents *todayComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear  fromDate:[NSDate date]];
+    [components setYear: [todayComponents year]];
+    NSDate *comingBirthday = [calendar dateFromComponents:components];
+    if([comingBirthday earlierDate: [NSDate date]]){
+        [components setYear: [todayComponents year] + 1];
+        comingBirthday = [calendar dateFromComponents:components];
+    }
+        
+    return [self daysBetweenDate: [NSDate date] andDate:comingBirthday];
 }
 
 - (IBAction)toggleEditing:(id)sender {
     [self.tblItems setEditing: !self.editing];
     [self setEditing: !self.editing animated: YES];
+}
+
+- (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime
+{
+    NSDate *fromDate;
+    NSDate *toDate;
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    [calendar rangeOfUnit:NSCalendarUnitDay startDate:&fromDate
+                 interval:NULL forDate:fromDateTime];
+    [calendar rangeOfUnit:NSCalendarUnitDay startDate:&toDate
+                 interval:NULL forDate:toDateTime];
+    
+    NSDateComponents *difference = [calendar components:NSCalendarUnitDay                                          fromDate:fromDate toDate:toDate options:0];
+    
+    return [difference day];
 }
 
 @end

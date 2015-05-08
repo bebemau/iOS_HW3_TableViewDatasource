@@ -114,92 +114,89 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="31" y="13" width="116" height="21"/>
+                                                        <rect key="frame" x="31" y="14" width="116" height="21"/>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlw-fr-eu8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovf-US-CcK">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="271" y="13" width="107" height="21"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xlw-fr-eu8" firstAttribute="top" secondItem="D7y-bI-9vV" secondAttribute="topMargin" constant="5" id="04F-MD-xmT"/>
                                                 <constraint firstItem="wdH-Lk-wHU" firstAttribute="leading" secondItem="D7y-bI-9vV" secondAttribute="leadingMargin" constant="23" id="Dck-Gp-hJa"/>
-                                                <constraint firstItem="xlw-fr-eu8" firstAttribute="leading" secondItem="D7y-bI-9vV" secondAttribute="leadingMargin" constant="263" id="KbC-Ck-fzX"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="xlw-fr-eu8" secondAttribute="trailing" constant="14" id="h41-g9-3is"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Ovf-US-CcK" secondAttribute="trailing" constant="14" id="Feg-oo-ujj"/>
+                                                <constraint firstItem="Ovf-US-CcK" firstAttribute="top" secondItem="D7y-bI-9vV" secondAttribute="topMargin" constant="7" id="ha7-of-qCU"/>
                                                 <constraint firstItem="wdH-Lk-wHU" firstAttribute="top" secondItem="D7y-bI-9vV" secondAttribute="topMargin" constant="5" id="hzr-l0-6ys"/>
+                                                <constraint firstItem="Ovf-US-CcK" firstAttribute="leading" secondItem="D7y-bI-9vV" secondAttribute="leadingMargin" constant="204" id="lJs-MU-ils"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="wdH-Lk-wHU"/>
-                                                    <exclude reference="xlw-fr-eu8"/>
+                                                    <exclude reference="Ovf-US-CcK"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="Dck-Gp-hJa"/>
                                                     <exclude reference="hzr-l0-6ys"/>
-                                                    <exclude reference="04F-MD-xmT"/>
-                                                    <exclude reference="KbC-Ck-fzX"/>
-                                                    <exclude reference="h41-g9-3is"/>
+                                                    <exclude reference="Feg-oo-ujj"/>
+                                                    <exclude reference="ha7-of-qCU"/>
+                                                    <exclude reference="lJs-MU-ils"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="wdH-Lk-wHU"/>
-                                                    <include reference="xlw-fr-eu8"/>
+                                                    <include reference="Ovf-US-CcK"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <include reference="Dck-Gp-hJa"/>
                                                     <include reference="hzr-l0-6ys"/>
-                                                    <include reference="04F-MD-xmT"/>
-                                                    <include reference="KbC-Ck-fzX"/>
-                                                    <include reference="h41-g9-3is"/>
+                                                    <include reference="Feg-oo-ujj"/>
+                                                    <include reference="ha7-of-qCU"/>
+                                                    <include reference="lJs-MU-ils"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="156" id="ku0-Sa-mAA">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="251" id="ku0-Sa-mAA">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ku0-Sa-mAA" id="RUD-zn-dH8">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="siG-eB-Dsm">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="B1c-SA-xxI">
                                                     <rect key="frame" x="-160" y="-81" width="320" height="162"/>
-                                                    <date key="date" timeIntervalSinceReferenceDate="452670651.01118898">
-                                                        <!--2015-05-07 05:50:51 +0000-->
+                                                    <date key="date" timeIntervalSinceReferenceDate="452756539.03457499">
+                                                        <!--2015-05-08 05:42:19 +0000-->
                                                     </date>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="14" y="-69" width="371" height="162"/>
+                                                        <rect key="frame" x="0.0" y="43" width="408" height="162"/>
                                                     </variation>
                                                     <connections>
-                                                        <action selector="dpBirthday_selected:" destination="0jL-NP-zGZ" eventType="valueChanged" id="EsQ-3M-e6m"/>
+                                                        <action selector="dpBirthday_selected:" destination="0jL-NP-zGZ" eventType="valueChanged" id="rts-IX-ZoO"/>
                                                     </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="centerX" secondItem="siG-eB-Dsm" secondAttribute="centerX" constant="0.5" id="VQc-lI-o3c"/>
-                                                <constraint firstAttribute="centerY" secondItem="siG-eB-Dsm" secondAttribute="centerY" constant="65.5" id="aAm-TK-R1n"/>
+                                                <constraint firstAttribute="centerX" secondItem="B1c-SA-xxI" secondAttribute="centerX" id="a74-lO-oKA"/>
+                                                <constraint firstAttribute="centerY" secondItem="B1c-SA-xxI" secondAttribute="centerY" constant="-0.5" id="v1r-xE-HdO"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
-                                                    <exclude reference="siG-eB-Dsm"/>
+                                                    <exclude reference="B1c-SA-xxI"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="VQc-lI-o3c"/>
-                                                    <exclude reference="aAm-TK-R1n"/>
+                                                    <exclude reference="a74-lO-oKA"/>
+                                                    <exclude reference="v1r-xE-HdO"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="subviews">
-                                                    <include reference="siG-eB-Dsm"/>
+                                                    <include reference="B1c-SA-xxI"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="VQc-lI-o3c"/>
-                                                    <include reference="aAm-TK-R1n"/>
+                                                    <include reference="a74-lO-oKA"/>
+                                                    <include reference="v1r-xE-HdO"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -221,14 +218,14 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="mMs-2N-pHO"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="dpBirthday" destination="siG-eB-Dsm" id="8E1-SQ-TaP"/>
-                        <outlet property="lblBirthday" destination="xlw-fr-eu8" id="GZa-uQ-h6Q"/>
+                        <outlet property="dpBirthday" destination="B1c-SA-xxI" id="EDO-kH-bCj"/>
+                        <outlet property="lblBirthday" destination="Ovf-US-CcK" id="3pW-R8-eTf"/>
                         <outlet property="nameCell" destination="nZv-fS-JdA" id="qAG-aa-Tdb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43w-MI-SWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2451" y="187.5"/>
+            <point key="canvasLocation" x="2451" y="185.25"/>
         </scene>
     </scenes>
 </document>
