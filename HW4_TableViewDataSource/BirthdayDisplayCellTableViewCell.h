@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface BirthdayDisplayCellTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *lblDaysTill;
+@property (weak, nonatomic) IBOutlet UILabel *lblName;
+@property (weak, nonatomic) IBOutlet UILabel *lblBirthday;
 
 @end

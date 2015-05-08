@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "BirthdayDisplayCellTableViewCell.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tblItems;
@@ -75,22 +76,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tableCell"];
-    //customTableViewCell *customCell = [tableView dequeueReusableCellwithIdentifier: customCellID];
-    //customCell.someLabel = sometext;
-    //return customCell;
-    
-    if(cell == nil){
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tableCell"];
-    }
-    
+    NSString *customCellID = @"tableCell";
     NSArray* allKeys = [_items allKeys];
     NSString *name = [allKeys objectAtIndex:indexPath.row];
     id value = [_items objectForKey: name];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", name, value];
     NSDate *birthdate = [self GetDateObject:value];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MMM dd, yyyy"];
+    NSString *dateString = [dateFormat stringFromDate:birthdate];
     NSInteger difference = [self CalculateDays: birthdate];
-    return cell;
+
+    BirthdayDisplayCellTableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier: customCellID];
+    customCell.lblBirthday.text = dateString;
+    customCell.lblDaysTill.text = [NSString stringWithFormat:@"%ld", (long)difference];
+    customCell.lblName.text = name;
+    
+    return customCell;
+
 }
 
 
@@ -105,11 +107,7 @@
 
 -(NSDate*)GetDateObject: (NSString*)dateInput{
     NSDateFormatter * df = [[NSDateFormatter alloc] init];
-    //[df setDateFormat:@"MM/dd/yyyy"];
     [df setDateFormat:@"MMM dd, yyyy"];
-    //[df setTimeZone:[NSTimeZone systemTimeZone]];
-    //[df setFormatterBehavior:NSDateFormatterBehaviorDefault];
-    
     NSDate *output = [df dateFromString:dateInput];
     
     return output;
