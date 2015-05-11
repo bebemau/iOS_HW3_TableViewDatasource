@@ -10,7 +10,7 @@
 #import "BirthdayDisplayCellTableViewCell.h"
 #import "EditViewController.h"
 
-@interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface ViewController ()<UITableViewDataSource, UITableViewDelegate, EditViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tblItems;
 @property BOOL automaticEditControlsDidShow;
 @end
@@ -24,6 +24,11 @@
     _items = [[NSMutableDictionary alloc]initWithCapacity:2];
     [_items setObject: @"January 18, 2008"  forKey:@"Fluffy"];
     [_items setObject: @"April 28, 2012"  forKey:@"Cheetos"];
+//    NSDictionary *firstKey = [[NSDictionary alloc] initWithObjectsAndKeys:@"January 18, 2008", @"Fluffy", nil];
+//    NSDictionary *secondKey = [[NSDictionary alloc] initWithObjectsAndKeys:@"April 28, 2012", @"Cheetos", nil];
+//    _items = [[NSMutableArray alloc] init];
+//    [_items addObject:firstKey];
+//    [_items addObject:secondKey];
 }
 
 #pragma tableView
@@ -97,16 +102,18 @@
 #pragma mark - EditViewController
 -(void)editViewControllerEntryCompleted:(EditViewController *)vc nameEntered:(NSString *)name birthdayEntered:(NSString *)birthdate{
     //add to array
+    [_items setObject: @"January 18, 2008"  forKey:@"keren"];
+    [self.tblItems reloadData];
 }
 
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        RecipeDetailViewController *destViewController = segue.destinationViewController;
-//        destViewController.recipe = recipe;
-//    }
-//}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    [super prepareForSegue:segue sender:sender];
+    
+    UINavigationController *navigationController = (UINavigationController *)segue.destinationViewController;
+    EditViewController *editViewController = (EditViewController *)navigationController.topViewController;
+    
+    editViewController.delegate = self;
+}
 
 -(NSDate*)GetDateObject: (NSString*)dateInput{
     NSDateFormatter * df = [[NSDateFormatter alloc] init];

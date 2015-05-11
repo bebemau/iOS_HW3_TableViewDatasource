@@ -14,6 +14,7 @@
 
 @end
 
+
 @implementation EditViewController
 
 - (void)viewDidLoad {
@@ -21,7 +22,6 @@
     // Do any additional setup after loading the view.
     
     _nameCell.textLabel.text = @"meow";
-    
 }
 
 
@@ -41,7 +41,11 @@
 }
 
 - (IBAction)btnDone_clicked:(id)sender {
-    [self.delegate editViewControllerEntryCompleted:self nameEntered:self.nameCell.textLabel.text birthdayEntered:_lblBirthday.text];
+    //if ([self.delegate respondsToSelector:@selector(editViewControllerEntryCompleted:)]) {
+        [self.delegate editViewControllerEntryCompleted:self nameEntered:self.nameCell.textLabel.text birthdayEntered:_lblBirthday.text];
+    //}else{
+      //  [self dismissViewControllerAnimated:YES completion:nil];
+    //}
 }
 
 @end
