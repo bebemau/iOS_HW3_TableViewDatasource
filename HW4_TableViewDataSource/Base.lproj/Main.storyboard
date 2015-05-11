@@ -308,7 +308,11 @@
                                 <action selector="btnCancel_clicked:" destination="0jL-NP-zGZ" id="WT0-TC-4mb"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="mMs-2N-pHO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="mMs-2N-pHO">
+                            <connections>
+                                <action selector="btnDone_clicked:" destination="0jL-NP-zGZ" id="f7f-yA-lpg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dpBirthday" destination="B1c-SA-xxI" id="EDO-kH-bCj"/>

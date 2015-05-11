@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "BirthdayDisplayCellTableViewCell.h"
+#import "EditViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tblItems;
@@ -21,9 +22,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     //use mutableCopy
     _items = [[NSMutableDictionary alloc]initWithCapacity:2];
-    NSDate* date = [self GetDateObject:@"January 18, 2008"];
     [_items setObject: @"January 18, 2008"  forKey:@"Fluffy"];
-    date = [self GetDateObject:@"April 28, 2012"];
     [_items setObject: @"April 28, 2012"  forKey:@"Cheetos"];
 }
 
@@ -95,6 +94,10 @@
 
 }
 
+#pragma mark - EditViewController
+-(void)editViewControllerEntryCompleted:(EditViewController *)vc nameEntered:(NSString *)name birthdayEntered:(NSString *)birthdate{
+    //add to array
+}
 
 
 //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

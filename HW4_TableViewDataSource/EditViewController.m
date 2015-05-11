@@ -40,4 +40,8 @@
     _lblBirthday.text = dateString;
 }
 
+- (IBAction)btnDone_clicked:(id)sender {
+    [self.delegate editViewControllerEntryCompleted:self nameEntered:self.nameCell.textLabel.text birthdayEntered:_lblBirthday.text];
+}
+
 @end
