@@ -11,6 +11,7 @@
 @interface EditViewController ()
 
 @property (strong) NSArray* monthArray;
+@property (weak, nonatomic) IBOutlet UITextField *txtName;
 
 @end
 
@@ -21,7 +22,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _nameCell.textLabel.text = @"meow";
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    NSDate *date = [dateFormat dateFromString:@"1/1/1960"];
+    self.dpBirthday.minimumDate = date;
+    date = [dateFormat dateFromString:@"12/31/2000"];
+    self.dpBirthday.maximumDate = date;
+    self.dpBirthday.datePickerMode = UIDatePickerModeDate;
 }
 
 
@@ -42,9 +48,9 @@
 
 - (IBAction)btnDone_clicked:(id)sender {
     //if ([self.delegate respondsToSelector:@selector(editViewControllerEntryCompleted:)]) {
-        [self.delegate editViewControllerEntryCompleted:self nameEntered:self.nameCell.textLabel.text birthdayEntered:_lblBirthday.text];
+        [self.delegate editViewControllerEntryCompleted:self nameEntered:self.txtName.text birthdayEntered:_lblBirthday.text];
     //}else{
-      //  [self dismissViewControllerAnimated:YES completion:nil];
+       [self dismissViewControllerAnimated:YES completion:nil];
     //}
 }
 

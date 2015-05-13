@@ -187,6 +187,44 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nZv-fS-JdA" id="Tck-5h-xRm">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FsG-Hd-m6q">
+                                                    <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="25" y="9" width="339" height="30"/>
+                                                    </variation>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FsG-Hd-m6q" firstAttribute="leading" secondItem="Tck-5h-xRm" secondAttribute="leadingMargin" constant="17" id="Ixn-WR-5OE"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="FsG-Hd-m6q" secondAttribute="trailing" constant="28" id="PLX-VP-vHa"/>
+                                                <constraint firstItem="FsG-Hd-m6q" firstAttribute="top" secondItem="Tck-5h-xRm" secondAttribute="topMargin" constant="1" id="aqk-9U-9FF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="FsG-Hd-m6q" secondAttribute="bottom" constant="-3" id="z55-T8-4hU"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="FsG-Hd-m6q"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="Ixn-WR-5OE"/>
+                                                    <exclude reference="PLX-VP-vHa"/>
+                                                    <exclude reference="aqk-9U-9FF"/>
+                                                    <exclude reference="z55-T8-4hU"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="FsG-Hd-m6q"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="Ixn-WR-5OE"/>
+                                                    <include reference="PLX-VP-vHa"/>
+                                                    <include reference="aqk-9U-9FF"/>
+                                                    <include reference="z55-T8-4hU"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Bxp-ug-oGJ">
@@ -304,12 +342,12 @@
                     <connections>
                         <outlet property="dpBirthday" destination="B1c-SA-xxI" id="EDO-kH-bCj"/>
                         <outlet property="lblBirthday" destination="Ovf-US-CcK" id="3pW-R8-eTf"/>
-                        <outlet property="nameCell" destination="nZv-fS-JdA" id="qAG-aa-Tdb"/>
+                        <outlet property="txtName" destination="FsG-Hd-m6q" id="XEF-8v-PYn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43w-MI-SWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2451" y="185.25"/>
+            <point key="canvasLocation" x="2451" y="184.5"/>
         </scene>
     </scenes>
 </document>

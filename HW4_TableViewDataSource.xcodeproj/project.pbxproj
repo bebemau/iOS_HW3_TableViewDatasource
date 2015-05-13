@@ -16,6 +16,8 @@
 		25B4C2A01AF72B8B002290F5 /* HW4_TableViewDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C29F1AF72B8B002290F5 /* HW4_TableViewDataSourceTests.m */; };
 		25B4C2DD1AF9CF11002290F5 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C2DC1AF9CF11002290F5 /* EditViewController.m */; };
 		25B4C2E31AFC5DB3002290F5 /* BirthdayDisplayCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C2E21AFC5DB3002290F5 /* BirthdayDisplayCellTableViewCell.m */; };
+		25BD050E1B01C3BB008CFD03 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BD050D1B01C3BB008CFD03 /* Profile.m */; };
+		25BD05111B01C750008CFD03 /* ProfileList.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BD05101B01C750008CFD03 /* ProfileList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,10 @@
 		25B4C2DC1AF9CF11002290F5 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		25B4C2E11AFC5DB3002290F5 /* BirthdayDisplayCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirthdayDisplayCellTableViewCell.h; sourceTree = "<group>"; };
 		25B4C2E21AFC5DB3002290F5 /* BirthdayDisplayCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BirthdayDisplayCellTableViewCell.m; sourceTree = "<group>"; };
+		25BD050C1B01C3BB008CFD03 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		25BD050D1B01C3BB008CFD03 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
+		25BD050F1B01C750008CFD03 /* ProfileList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileList.h; sourceTree = "<group>"; };
+		25BD05101B01C750008CFD03 /* ProfileList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,10 @@
 				25B4C2831AF72B8B002290F5 /* Supporting Files */,
 				25B4C2E11AFC5DB3002290F5 /* BirthdayDisplayCellTableViewCell.h */,
 				25B4C2E21AFC5DB3002290F5 /* BirthdayDisplayCellTableViewCell.m */,
+				25BD050C1B01C3BB008CFD03 /* Profile.h */,
+				25BD050D1B01C3BB008CFD03 /* Profile.m */,
+				25BD050F1B01C750008CFD03 /* ProfileList.h */,
+				25BD05101B01C750008CFD03 /* ProfileList.m */,
 			);
 			path = HW4_TableViewDataSource;
 			sourceTree = "<group>";
@@ -232,8 +242,10 @@
 				25B4C2E31AFC5DB3002290F5 /* BirthdayDisplayCellTableViewCell.m in Sources */,
 				25B4C2DD1AF9CF11002290F5 /* EditViewController.m in Sources */,
 				25B4C28C1AF72B8B002290F5 /* ViewController.m in Sources */,
+				25BD050E1B01C3BB008CFD03 /* Profile.m in Sources */,
 				25B4C2891AF72B8B002290F5 /* AppDelegate.m in Sources */,
 				25B4C2861AF72B8B002290F5 /* main.m in Sources */,
+				25BD05111B01C750008CFD03 /* ProfileList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +438,7 @@
 				25B4C2A51AF72B8B002290F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25B4C2A61AF72B8B002290F5 /* Build configuration list for PBXNativeTarget "HW4_TableViewDataSourceTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +447,7 @@
 				25B4C2A81AF72B8B002290F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

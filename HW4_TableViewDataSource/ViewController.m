@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "BirthdayDisplayCellTableViewCell.h"
 #import "EditViewController.h"
+#import "ProfileList.h"
+#import "Profile.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate, EditViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tblItems;
@@ -19,25 +21,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    //use mutableCopy
-    _items = [[NSMutableDictionary alloc]initWithCapacity:2];
-    [_items setObject: @"January 18, 2008"  forKey:@"Fluffy"];
-    [_items setObject: @"April 28, 2012"  forKey:@"Cheetos"];
-//    NSDictionary *firstKey = [[NSDictionary alloc] initWithObjectsAndKeys:@"January 18, 2008", @"Fluffy", nil];
-//    NSDictionary *secondKey = [[NSDictionary alloc] initWithObjectsAndKeys:@"April 28, 2012", @"Cheetos", nil];
-//    _items = [[NSMutableArray alloc] init];
-//    [_items addObject:firstKey];
-//    [_items addObject:secondKey];
+    
+    self.profileList = [[ProfileList alloc] init];
+    NSDate *birthDate = [self GetDateObject:@"January 18, 2008"];
+    [self.profileList AddProfile:@"Fluffy" birthdate: birthDate];
+    birthDate = [self GetDateObject:@"April 28, 2012"];
+    [self.profileList AddProfile:@"Cheetos" birthdate: birthDate];
 }
 
 #pragma tableView
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSArray *keys =[_items allKeys];
-        NSString *key = [keys objectAtIndex: indexPath.row];
-        [_items removeObjectForKey:key];
+        
+        [self.profileList DeleteProfileAtIndex:indexPath.row];
         [self.tblItems reloadData];
     }
 }
@@ -75,21 +72,22 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_items count];
+    //return [_items count];
+    return [self.profileList profileCount];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     NSString *customCellID = @"tableCell";
-    NSArray* allKeys = [_items allKeys];
-    NSString *name = [allKeys objectAtIndex:indexPath.row];
-    id value = [_items objectForKey: name];
-    NSDate *birthdate = [self GetDateObject:value];
+    Profile *profile = [self.profileList profileAtIndex:indexPath.row];
+    NSString *name = profile.name;
+    NSDate *birthdate = profile.birthdate;
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MMM dd, yyyy"];
     NSString *dateString = [dateFormat stringFromDate:birthdate];
     NSInteger difference = [self CalculateDays: birthdate];
-
+    
     BirthdayDisplayCellTableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier: customCellID];
     customCell.lblBirthday.text = dateString;
     customCell.lblDaysTill.text = [NSString stringWithFormat:@"%ld", (long)difference];
@@ -102,7 +100,8 @@
 #pragma mark - EditViewController
 -(void)editViewControllerEntryCompleted:(EditViewController *)vc nameEntered:(NSString *)name birthdayEntered:(NSString *)birthdate{
     //add to array
-    [_items setObject: @"January 18, 2008"  forKey:@"keren"];
+    NSDate *date = [self GetDateObject:birthdate];
+    [self.profileList AddProfile:name birthdate:date];
     [self.tblItems reloadData];
 }
 
@@ -129,7 +128,8 @@
     NSDateComponents *todayComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear  fromDate:[NSDate date]];
     [components setYear: [todayComponents year]];
     NSDate *comingBirthday = [calendar dateFromComponents:components];
-    if([comingBirthday earlierDate: [NSDate date]]){
+    
+    if([comingBirthday compare:[NSDate date]] == NSOrderedAscending){
         [components setYear: [todayComponents year] + 1];
         comingBirthday = [calendar dateFromComponents:components];
     }
@@ -157,6 +157,10 @@
     NSDateComponents *difference = [calendar components:NSCalendarUnitDay                                          fromDate:fromDate toDate:toDate options:0];
     
     return [difference day];
+}
+
+-(void)RefreshTable{
+    [self.tblItems reloadData];
 }
 
 @end

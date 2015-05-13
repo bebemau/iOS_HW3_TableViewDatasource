@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProfileList.h"
 
 @interface ViewController : UIViewController
 @property NSMutableDictionary* items;
-
+@property (strong) IBOutlet ProfileList *profileList;
 @end
 
