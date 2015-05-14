@@ -11,7 +11,7 @@
 
 @interface ProfileList : NSObject
 @property (nonatomic, readwrite) NSMutableArray *profileList;
--(void)AddProfile: (NSString*)name birthdate: (NSDate*)date;
+-(void)AddProfile: (NSString*)name birthdate: (NSDate*)date DaysTill: (NSInteger)days;
 -(void)DeleteProfile: (NSString*)name;
 -(NSArray*) getSortedList;
 -(void)DeleteProfileAtIndex: (NSUInteger)index;

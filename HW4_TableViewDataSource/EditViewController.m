@@ -47,11 +47,13 @@
 }
 
 - (IBAction)btnDone_clicked:(id)sender {
-    //if ([self.delegate respondsToSelector:@selector(editViewControllerEntryCompleted:)]) {
+    if (![self.txtName.text isEqualToString:@""]){
+        //if ([self.delegate respondsToSelector:@selector(editViewControllerEntryCompleted:)]) {
         [self.delegate editViewControllerEntryCompleted:self nameEntered:self.txtName.text birthdayEntered:_lblBirthday.text];
-    //}else{
-       [self dismissViewControllerAnimated:YES completion:nil];
-    //}
+        //}
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

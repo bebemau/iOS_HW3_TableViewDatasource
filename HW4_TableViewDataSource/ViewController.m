@@ -24,9 +24,11 @@
     
     self.profileList = [[ProfileList alloc] init];
     NSDate *birthDate = [self GetDateObject:@"January 18, 2008"];
-    [self.profileList AddProfile:@"Fluffy" birthdate: birthDate];
-    birthDate = [self GetDateObject:@"April 28, 2012"];
-    [self.profileList AddProfile:@"Cheetos" birthdate: birthDate];
+    NSInteger daysTill = [self CalculateDays:birthDate];
+    [self.profileList AddProfile:@"Fluffy" birthdate: birthDate DaysTill:daysTill];
+    birthDate = [self GetDateObject:@"October 28, 2012"];
+    daysTill = [self CalculateDays:birthDate];
+    [self.profileList AddProfile:@"Cheetos" birthdate: birthDate DaysTill:daysTill];
 }
 
 #pragma tableView
@@ -86,11 +88,13 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MMM dd, yyyy"];
     NSString *dateString = [dateFormat stringFromDate:birthdate];
-    NSInteger difference = [self CalculateDays: birthdate];
+//    NSInteger difference = [self CalculateDays: birthdate];
+    NSInteger daysTill = profile.daysTill;
     
     BirthdayDisplayCellTableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier: customCellID];
     customCell.lblBirthday.text = dateString;
-    customCell.lblDaysTill.text = [NSString stringWithFormat:@"%ld", (long)difference];
+    //customCell.lblDaysTill.text = [NSString stringWithFormat:@"%ld", (long)difference];
+    customCell.lblDaysTill.text = [NSString stringWithFormat: @"%ld", daysTill];
     customCell.lblName.text = name;
     
     return customCell;
@@ -101,7 +105,8 @@
 -(void)editViewControllerEntryCompleted:(EditViewController *)vc nameEntered:(NSString *)name birthdayEntered:(NSString *)birthdate{
     //add to array
     NSDate *date = [self GetDateObject:birthdate];
-    [self.profileList AddProfile:name birthdate:date];
+    NSInteger days = [self CalculateDays:date];
+    [self.profileList AddProfile:name birthdate:date DaysTill:days];
     [self.tblItems reloadData];
 }
 

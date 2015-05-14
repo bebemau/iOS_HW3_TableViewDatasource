@@ -11,6 +11,6 @@
 @interface Profile : NSObject
 @property (nonatomic) NSString* name;
 @property (nonatomic) NSDate* birthdate;
-@property (nonatomic) NSInteger* daysTill;
+@property (nonatomic) NSInteger daysTill;
 
 @end

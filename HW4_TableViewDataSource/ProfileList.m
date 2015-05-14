@@ -11,15 +11,18 @@
 
 @implementation ProfileList
 
--(void)AddProfile: (NSString*)name birthdate: (NSDate*)date{
+-(void)AddProfile: (NSString*)name birthdate: (NSDate*)date DaysTill:(NSInteger)days{
     Profile *newItem = [[Profile alloc] init];
     newItem.name = name;
     newItem.birthdate = date;
+    newItem.daysTill = days;
     
     if(self.profileList == nil)
         self.profileList = [[NSMutableArray alloc] init];
     
     [self.profileList addObject: newItem];
+    
+    self.profileList = self.getSortedList.mutableCopy;
 }
 
 -(void)DeleteProfile:(NSString *)name{
@@ -38,7 +41,7 @@
 
 -(NSArray*)getSortedList{
     NSSortDescriptor *sortDescriptor;
-    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"birthdate"
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"daysTill"
                                                  ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     NSArray *sortedArray;
